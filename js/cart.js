@@ -50,6 +50,11 @@ window.addEventListener('click', function(event){
    </div>`;
 
    cartdWrapper.insertAdjacentHTML('beforeend', cartItemHtml);
-     }   
+     }  
+     
+     card.querySelector('[data-counter]').innerText = '1';
+
+     toggleCartStatus();
+     calcCartPrice();
   }
 } ); 
