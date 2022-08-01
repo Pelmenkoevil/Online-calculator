@@ -1,93 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Онлайн калькулятор</title>
+		<link rel="stylesheet" href="./css/main.css" />
+		<link rel="stylesheet" href="./libs/noUiSlider/nouislider.css">
+	</head>
+	<body>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-	<title>Магазин роллов</title>
-	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/main.css">
-	<link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,400i,700&amp;subset=cyrillic-ext" rel="stylesheet">
+		<div class="container">
+			<div class="title">Онлайн калькулятор</div>
+			<div class="row">
+				<form id="form" class="col-left">
 
-</head>
+					<!-- programms-wraper -->
+					<div class="programms-wraper">
+						<input type="radio" name="program" value="base" id="base-value" class="radio-hidden" checked>
+						<label for="base-value" class="radio-label">Базовая программа <span id="base-text">XX</span></label>
 
-<body>
+						<input type="radio" name="program" value="it" id="it-value" class="radio-hidden">
+						<label for="it-value" class="radio-label">Ипотека для IT <span id="it-text">XX</span></label>
 
-	<header class="header">
-		<div class="container text-center">
-			<img src="img/logo/logo.svg" width="92" alt="Суши и пицца">
-			<div class="display-4">Доставка роллов</div>
-			<p class="lead">Оперативно и вкусно</p>
-		</div>
-	</header>
+						<input type="radio" name="program" value="gov" id="gov-value" class="radio-hidden">
+						<label for="gov-value" class="radio-label">Господдержка <span id="gov-text">XX</span></label>
 
-	<div class="container mb-5">
-		<div class="row">
-			<div class="col-md-8">
-				<div class="row" id="products-container">
-
-					<!-- Ролл -->
-					
-					<!-- // Ролл -->
-
-				</div>
-			</div>
-			<div class="col-md-4">
-
-				<!-- Корзина -->
-				<div class="card mb-4">
-					<div class="card-body">
-						<h5 class="card-title">Ваш заказ</h4>
-						<div data-cart-empty class="alert alert-secondary" role="alert">
-							Корзина пуста
-						</div>
-						<!-- cart-wrapper -->
-						<div class="cart-wrapper">
-
-							<!-- Cart item -->
-							
-							<!-- // Cart item -->
-
-						</div>
-						<!-- // cart-wrapper -->
-
-						<!-- Стоимость заказа -->
-						<div data-cart-delivery class="cart-total">
-							<p ><span class="h5">Доставка:</span> <span class="delivery-cost">250 р</span><br> <small>бесплатно при заказе от 600р</small></p>
-							<p><span class="h5">Итого:</span> <span class="total-price">0</span> <span class="rouble">₽</span></p>
-						</div>
-						<!-- // Стоимость заказа -->
-
+						<input type="radio" name="program" value="zero" id="zero-value" class="radio-hidden">
+					git commit -m "first commit"	<label for="zero-value" class="radio-label">Без первоначального взноса <span id="zero-text">XX</span></label>
 					</div>
+					<!-- // programms-wraper -->
 
-					<!-- Оформить заказ -->
-					<div id="order-form" class="card-body border-top none">
-						<h5 class="card-title">Оформить заказ</h4>
-						<form>
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Ваш номер телефона">
+					<!-- params-wrapper -->
+					<div class="params-wrapper">
+
+						<label class="param">
+							<div class="param__details">
+								<div class="param__title">Стоимость недвижимости</div>
+								<input type="text" class="param__value" value="12000000" inputmode="decimal" id="input-cost">
 							</div>
-							<button type="submit" class="btn btn-primary">Заказать</button>
-						</form>
+							<div class="param__range-slider" id="slider-cost"></div>
+
+							<div class="param__limits limit">
+								<div class="limit__from">375 тыс. Р</div>
+								<div class="limit__50">10 млн Р</div>
+								<div class="limit__to">100 млн Р</div>
+							</div>
+						</label>
+
+						<label class="param">
+							<div class="param__details">
+								<div class="param__title">Первоначальный взнос</div>
+								<input type="text" class="param__value" value="4980000" id="input-downpayment">
+							</div>
+							<div class="param__range-slider"></div>
+
+							<div class="param__limits limit">
+								<div class="limit__from">15%</div>
+								<div class="limit__to">90%</div>
+							</div>
+						</label>
+
+						<label class="param">
+							<div class="param__details">
+								<div class="param__title">Срок кредита</div>
+								<input type="text" class="param__value" value="12" id="input-term">
+							</div>
+							<div class="param__range-slider"></div>
+
+							<div class="param__limits limit">
+								<div class="limit__from">1 год</div>
+								<div class="limit__to">30 лет</div>
+							</div>
+						</label>
+
 					</div>
-					<!-- // Оформить заказ -->
+					<!-- // params-wrapper -->
+
+				</form>
+				<!-- Col Right -->
+				<div class="col-right">
+
+					<!-- Summary -->
+					<div class="summary">
+
+						<div class="summary__item summary-item">
+							<div class="summary-item__title">Ежемесячный платеж</div>
+							<div class="summary-item__value summary-item__value--bigger" id="total-month-payment">XXXX</div>
+						</div>
+
+						<div class="summary__item summary-item">
+							<div class="summary-item__title">Процентная ставка</div>
+							<div class="summary-item__value summary-item__value--bigger summary-item__value--percents" id="total-percent">XX</div>
+						</div>
+
+						<div class="summary__item summary-item">
+							<div class="summary-item__title">Сумма кредита</div>
+							<div class="summary-item__value" id="total-cost">XXXX</div>
+						</div>
+
+					</div>
+					<!-- // Summary -->
 
 				</div>
-				<!-- // Корзина -->
-
-
+				<!-- // Col Right -->
 			</div>
 		</div>
-	</div>
 
-	<!-- Подключаем скрипты -->
-<script src="js/renderProducts.js"></script>
-<script src="js/calcCartPrice.js"></script>
-<script src="js/toggleCartStatus.js"></script>
-<script src="js/counter.js"></script>
-<script src="js/cart.js"></script>
-
-
-</body>
-
+    </body>
 </html>
