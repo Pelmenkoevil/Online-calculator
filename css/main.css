@@ -204,22 +204,21 @@ body {
 
 /* Sliders */
 
-#slider-cost,
-#slider-cost .noUi-handle {
+.param__range-slider,
+.param__range-slider .noUi-handle {
     box-shadow: none;
 }
 
 /* Hide markers on slider handles */
-#slider-cost .noUi-handle::before,
-#slider-cost .noUi-handle::after {
+.param__range-slider .noUi-handle::before,
+.param__range-slider.noUi-handle::after {
     display: none;
 }
-
-#slider-cost .noUi-connect {
+.param__range-slider .noUi-connect {
     background: #21bb57;
 }
 
-#slider-cost .noUi-handle {
+.param__range-slider .noUi-handle {
     height: 20px;
     width: 20px;
     top: -7px;
@@ -232,6 +231,11 @@ body {
 	transition: transform 0.1s ease-in;
 }
 
-#slider-cost .noUi-handle:hover{
+.param__range-slider .noUi-handle:hover{
 	transform: scale(1.3);
+}
+
+
+.param__range-slider {
+	height: 8px;
 }
